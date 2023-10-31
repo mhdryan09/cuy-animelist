@@ -13,11 +13,18 @@ const InputSearch = () => {
     if (e.key === "Enter" || e.type === "click") {
       // matikan default submit
       e.preventDefault();
-      // ambil inputan value
-      const keyword = searchRef.current.value;
-      // redirect halaman search dgn keyword
-      router.push(`/search/${keyword}`);
-      // kosongkan inputan / reset inputan
+
+      // jika inputan kosong
+      if (searchRef.current.value === "") {
+        // Handle empty input
+        alert('masih kosong bang');
+      } else {
+        // ambil inputan value
+        const keyword = searchRef.current.value;
+        // redirect halaman search dgn keyword
+        router.push(`/search/${keyword}`);
+        // kosongkan inputan / reset inputan
+      }
       searchRef.current.value = "";
     }
   }
